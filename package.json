@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/HKiwooma/node_basics/issues"
   },
-  "homepage": "https://github.com/HKiwooma/node_basics#readme"
+  "homepage": "https://github.com/HKiwooma/node_basics#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
