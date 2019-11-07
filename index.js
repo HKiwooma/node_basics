@@ -7,6 +7,7 @@ import express from 'express' */
 const express = require('express')
 const app = express()
 const router = express.Router()
+const path
 
 //seting a global variable-way of sharing data
 app.set('view engine', 'pug')
@@ -55,10 +56,8 @@ app.delete('/', (req, res) => {
 
 //query parameter-http://localhost:3000/users?class=node&cohort=3
 app.get('/users', (req, res) => {
-  res.send('This is class '+req.query.class+'cohort '+req.query.cohort)
+  res.send('This is class '+req.query.class+' cohort '+req.query.cohort)
 }) 
-
-
 
 
 
