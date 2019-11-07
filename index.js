@@ -5,9 +5,10 @@ import express from 'express' */
 
 // using v8 version module
 const express = require('express')
+const path = require('express')
 const app = express()
 const router = express.Router()
-const path
+
 
 //seting a global variable-way of sharing data
 app.set('view engine', 'pug')
