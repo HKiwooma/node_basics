@@ -8,7 +8,6 @@ html(lang="en")
         title first-templete
     body
         div.container
-            br
             div.row.justify-content-center
                 div.col-md-6
                     div.card
@@ -42,17 +41,20 @@ html(lang="en")
                                 form-group.col-md-6
                                     label(for="") Country
                                     select.form-control(name="")
-                                    option(value="") Choose...
-                                    option(value="") Uzbekistan
-                                    option(value="") Russia
-                                    option(value="" selected="") United States
-                                    option(value="") India
-                                    option(value="") Afganistan
+                                        option(value="") Choose...
+                                        option(value="") Uzbekistan
+                                        option(value="") Russia
+                                        option(value="" selected="") United States
+                                        option(value="") India
+                                        option(value="") Afganistan
                             .form-group
                                 label(for="") Create password
                                 input.form-control(type="password", name="")
                             .form-group
                                 button(type="submit").btn.btn-primary.btn-block Register
-                            small.text-muted By clicking the 'Sign Up' button, you confirm that you accept our
-                            br Terms of use and Privacy Policy.
-
+                            div.text-muted
+                                small.text-muted By clicking the 'Sign Up' button, you confirm that you accept our
+                            div.text-muted
+                                small.text-muted Terms of use and Privacy Policy.
+                            .border-top.card-body.text-center  Have an account? 
+                                a(href="#") Log In
