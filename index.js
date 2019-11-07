@@ -13,6 +13,11 @@ const router = express.Router()
 //seting a global variable-way of sharing data
 app.set('view engine', 'pug')
 app.set('views', 'views')
+/* 
+//seting a global variable-way of sharing data
+app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'view')) */
+
 
 
 /* // call back fuction for the app fuction to listen port 3000
@@ -22,10 +27,10 @@ app.listen(3000, function () {
 
 // app.get(path,callback) 
 //req-request, res-response
-router.get('/',function(req,res){ 
+/* router.get('/',function(req,res){ 
     res.send('Hello World!')
 })
-
+ */
 app.listen(3000, () => {
   console.log('listening on 3000')
 })
@@ -38,7 +43,10 @@ app.get('/login', (req, res, next) => {
   //user templete to display 
   res.render('login')
 })
-
+app.get('/first-templete', (req, res, next) => {
+  //user templete to display 
+  res.render('index')
+})
 app.get('/about', (req, res) => {
   res.send('This is about us page')
 })
