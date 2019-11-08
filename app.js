@@ -1,5 +1,6 @@
 const http = require('http')
 // importing http from nodejs
+const fs = require('fs')
 
 /* function rqListener (req, res) {
 }
@@ -13,7 +14,11 @@ const server = http.createServer(function rqListener (req, res) {
   //   console.log(req.url, req.method, req.headers)
   // process.exit() //to quit the server
   // routing requests
-  const url = req.url
+    const url = req.url
+    
+    //to make sures that we are handling get request
+    const method = req.method
+    
   if (url === '/') {
     res.setHeader('Content-Type', 'text/html')
     res.write('<html>') // help write small html
@@ -22,6 +27,13 @@ const server = http.createServer(function rqListener (req, res) {
     res.write('</body>')
     return res.end()
   }
+    if(url === '/message' && method === 'POST') {
+        fs.writeFileSync('message.txt', 'Dummy')
+        // res.writeHead(302,{})  //helps us write some meta information or
+        res.statusCode = 302 //302-redirection
+        res.setHeader('Location', '/')
+        return  res.end()
+    }
 
   res.setHeader('Content-Type', 'text/html')
   res.write('<html>') // help write small html
