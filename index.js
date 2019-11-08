@@ -15,8 +15,8 @@ app.set('view engine', 'pug')
 app.set('views', 'views')
 /* 
 //seting a global variable-way of sharing data
-app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'view')) */
+*/
+// app.set('views', path.join(__dirname, 'views')) 
 
 
 
@@ -44,9 +44,18 @@ app.get('/login', (req, res, next) => {
   res.render('login')
 })
 app.get('/first-templete', (req, res, next) => {
+  console.log('body', req.body);
+  console.log('Query params', req.query);
   //user templete to display 
   res.render('index')
 })
+app.post('/first-templete', (req, res, next) => {
+  console.log('body', req.body);
+  console.log('Query params', req.query);
+  //user templete to display 
+  res.render('index')
+})
+
 app.get('/about', (req, res) => {
   res.send('This is about us page')
 })
