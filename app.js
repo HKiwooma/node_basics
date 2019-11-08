@@ -10,13 +10,24 @@ http.createServer(rqListener)
 
 // or use random function call event driven arctitechure 
 const server = http.createServer(function rqListener (req, res) {
-  console.log(req.url, req.method, req.headers)
+  //   console.log(req.url, req.method, req.headers)
   // process.exit() //to quit the server
+  const url = req.url
+  if (url === '/') {
+    res.setHeader('Content-Type', 'text/html')
+    res.write('<html>') // help write small html
+    res.write('<head><title>Enter Message</title></head>')
+    res.write('<body><form action="/message" method="POST"><input type="text"><button type="submit"></button><form></body>')
+    res.write('</body>')
+    res.end()
+  }
+
   res.setHeader('Content-Type', 'text/html')
   res.write('<html>') // help write small html
   res.write('<head><title>My First Page</title></head>')
   res.write('<body><h1>Hello from my node.js Serve!</h1></body>')
   res.write('</body>')
+  res.end()
 })
 
 server.listen(3000)
