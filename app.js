@@ -19,7 +19,7 @@ const server = http.createServer(function rqListener (req, res) {
     res.write('<head><title>Enter Message</title></head>')
     res.write('<body><form action="/message" method="POST"><input type="text"><button type="submit"></button><form></body>')
     res.write('</body>')
-    res.end()
+     return res.end()
   }
 
   res.setHeader('Content-Type', 'text/html')
