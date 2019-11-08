@@ -1,5 +1,0 @@
-console.log('Hello World');
-
-const express = required('express')
-const app = express()
-
