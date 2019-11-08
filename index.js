@@ -44,16 +44,25 @@ app.get('/login', (req, res, next) => {
   res.render('login')
 })
 app.get('/first-templete', (req, res, next) => {
-  console.log('body', req.body);
-  console.log('Query params', req.query);
+  // console.log('body', req.body);
+  // console.log('Query params', req.query);
   //user templete to display 
   res.render('index')
 })
-app.post('/first-templete', (req, res, next) => {
-  console.log('body', req.body);
-  console.log('Query params', req.query);
+app.post('/first-templete', (req, res) => {
+  console.log('Form has be posted');  
+  // console.log('body', req.body);
+  // console.log('Query params', req.query);
+  // res.send('Form has be posted')
   //user templete to display 
-  res.render('index')
+  // res.render('index')
+})
+app.post('/thanks', (req, res) => {
+  console.log('Form has be posted');  
+  // console.log('body', req.body);
+  // console.log('Query params', req.query);
+  res.send(req.body)
+  res.send('Form has be posted')
 })
 
 app.get('/about', (req, res) => {

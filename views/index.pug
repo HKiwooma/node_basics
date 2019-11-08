@@ -16,11 +16,11 @@ html(lang="en")
                             a.float-right.btn.btn-outline-primary.mt-1 Log in
                             h2.card-tittle.mt-2 Register
                         article.card-body
-                            form(action="#")
+                            form(method="POST" action="/thanks")
                             div.form-row
                                 div.col.form-group
                                     label(for="") First Name
-                                    input.form-control(type="text")
+                                    input.form-control(type="text" name="firstname")
                                 div.col.form-group
                                     label(for="") Last Name
                                     input.form-control(type="text")
@@ -58,4 +58,4 @@ html(lang="en")
                             div.text-muted
                                 small Terms of use and Privacy Policy.
                             .border-top.card-body.text-center  Have an account? 
-                                a(href="#") Log In
+                                a(href="") Log In
