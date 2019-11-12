@@ -84,7 +84,7 @@ app.post('/first-templete', (req, res) => {
 // user templete to display 
 // res.render('index')
 })
-// Submit Route
+/* // Submit Route
 app.post('/submit', (req, res) => {
   // res.send("Hello " + req.body.firstname)
   res.render('form_data', {
@@ -96,7 +96,7 @@ app.post('/submit', (req, res) => {
     city: req.body.city,
     password: req.body.password
   })
-})
+}) */
 app.post('/thanks', (req, res) => {
   console.log('Form has be posted')
   // console.log('body', req.body)
@@ -104,7 +104,24 @@ app.post('/thanks', (req, res) => {
   res.send(req.body)
   res.send('Form has be posted')
 })
-// // const app = express()
-// var mongoose = require('mongoose')
-// mongoose.Promise = global.Promise
-// mongoose.connect('mongodb://localhost:27017/node-demo')
+// const app = express()
+var mongoose = require('mongoose')
+mongoose.Promise = global.Promise
+mongoose.connect('mongodb://localhost:27017/node-demo')
+
+var nameSchema = new mongoose.Schema({
+  firstName: String,
+  lastNameName: String
+})
+var User = mongoose.model('User', nameSchema)
+
+app.post('/addname', (req, res) => {
+  var myData = new User(req.body)
+  myData.save()
+    .then(item => {
+      res.send('item saved to database')
+    })
+    .catch(err => {
+      res.status(400).send('unable to save to database')
+    })
+})
