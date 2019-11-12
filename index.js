@@ -84,6 +84,19 @@ app.post('/first-templete', (req, res) => {
 // user templete to display 
 // res.render('index')
 })
+// Submit Route
+app.post('/submit', (req, res) => {
+  // res.send("Hello " + req.body.firstname)
+  res.render('form_data', {
+    fname: req.body.firstname,
+    lname: req.body.lastname,
+    email: req.body.emailaddress,
+    gender: req.body.gender,
+    country: req.body.country,
+    city: req.body.city,
+    password: req.body.password
+  })
+})
 app.post('/thanks', (req, res) => {
   console.log('Form has be posted')
   // console.log('body', req.body)
