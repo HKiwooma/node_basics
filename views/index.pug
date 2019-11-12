@@ -1,20 +1,17 @@
-extends mainLayout.pug
-
-block style
-    
+extends layouts/main-layout.pug 
 block content
     article.card-body
         form(method="POST" action="/thanks")
         div.form-row
             div.col.form-group
                 label(for="") First Name
-                input.form-control(type="text" name="firstname")
+                input.form-control(type="text" name="firstName")
             div.col.form-group
                 label(for="") Last Name
-                input.form-control(type="text")
+                input.form-control(type="text" name="lastName")
         div.form-group
             label(for="") Email
-            input.form-control(type="email")
+            input.form-control(type="email" name="emailAddress")
             small.form-text.text-muted We'll never share your email with anyone else.
         .form-group
             label(for="").form-check.form-check-inline
@@ -40,10 +37,12 @@ block content
             label(for="") Create password
             input.form-control(type="password", name="password")
         .form-group
-            button(type="submit").btn.btn-primary.btn-block Register
+            input(type="submit", value="Register").btn.btn-primary.btn-block
         div.text-muted
             small By clicking the 'Sign Up' button, you confirm that you accept our
         div.text-muted
             small Terms of use and Privacy Policy.
         .border-top.card-body.text-center  Have an account? 
             a(href="") Log In
+    
+    div Refactory &copy 2019 

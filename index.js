@@ -26,6 +26,57 @@ app.set('views', 'views') */
 app.listen(3000, function () {
   console.log('listening on 3000')
 })
+app.get('/first-templete', (req, res, next) => {
+  res.render('index')
+})
+/* app.post('/first-templete', (req, res) => {
+  console.log('Form has be posted')
+}) */
+// Submit Route
+app.post('/thanks', (req, res) => {
+  // res.send("Hello " + req.body.firstname)
+  res.render('formDataReciever', {
+    fname: req.body.firstName,
+    lname: req.body.lastName,
+    email: req.body.emailAddress,
+    gender: req.body.gender,
+    country: req.body.country,
+    city: req.body.city,
+    password: req.body.password
+  })
+})
+/* app.post('/thanks', (req, res) => {
+  console.log('Form has be posted')
+  // console.log('body', req.body)
+  // console.log('Query params', req.query)
+  res.send(req.body)
+  res.send('Form has be posted')
+}) */
+/*
+// const app = express()
+var mongoose = require('mongoose')
+// mongoose.Promise = global.Promise
+mongoose.connect('mongodb://localhost:27017/node-demo')
+// mongoose.connect('mongodb://localhost:27017/node-demo', { useNewUrlParser: true })
+// mongoose.connect(mongoConnectionString, {useUnifiedTopology: true})
+
+var nameSchema = new mongoose.Schema({
+  firstName: String,
+  lastNameName: String
+})
+var User = mongoose.model('User', nameSchema)
+
+app.post('/first-templete', (req, res) => {
+  var myData = new User(req.body)
+  myData.save()
+    .then(item => {
+      res.send('item saved to database')
+    })
+    .catch(err => {
+      res.status(400).send('unable to save to database')
+    })
+})
+*/
 
 // app.get(path,callback)
 // GET Route 
@@ -69,59 +120,3 @@ app.get('/users', (req, res) => {
   res.send('Oh sorry! wrong request address. \n Try again')
 })
  */
-
-app.get('/first-templete', (req, res, next) => {
-  // console.log('body', req.body)
-  // console.log('Query params', req.query)
-  // user templete to display 
-  res.render('index')
-})
-app.post('/first-templete', (req, res) => {
-  console.log('Form has be posted')
-// console.log('body', req.body)
-// console.log('Query params', req.query)
-// res.send('Form has be posted')
-// user templete to display 
-// res.render('index')
-})
-/* // Submit Route
-app.post('/submit', (req, res) => {
-  // res.send("Hello " + req.body.firstname)
-  res.render('form_data', {
-    fname: req.body.firstname,
-    lname: req.body.lastname,
-    email: req.body.emailaddress,
-    gender: req.body.gender,
-    country: req.body.country,
-    city: req.body.city,
-    password: req.body.password
-  })
-}) */
-app.post('/thanks', (req, res) => {
-  console.log('Form has be posted')
-  // console.log('body', req.body)
-  // console.log('Query params', req.query)
-  res.send(req.body)
-  res.send('Form has be posted')
-})
-// const app = express()
-var mongoose = require('mongoose')
-mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost:27017/node-demo')
-
-var nameSchema = new mongoose.Schema({
-  firstName: String,
-  lastNameName: String
-})
-var User = mongoose.model('User', nameSchema)
-
-app.post('/addname', (req, res) => {
-  var myData = new User(req.body)
-  myData.save()
-    .then(item => {
-      res.send('item saved to database')
-    })
-    .catch(err => {
-      res.status(400).send('unable to save to database')
-    })
-})
