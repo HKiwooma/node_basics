@@ -1,61 +1,49 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-        title first-templete
-    body
-    p
-        div.container
-            div.row.justify-content-center
-                div.col-md-6
-                    div.card
-                        header.card-header
-                            a.float-right.btn.btn-outline-primary.mt-1 Log in
-                            h2.card-tittle.mt-2 Register
-                        article.card-body
-                            form(method="POST" action="/thanks")
-                            div.form-row
-                                div.col.form-group
-                                    label(for="") First Name
-                                    input.form-control(type="text" name="firstname")
-                                div.col.form-group
-                                    label(for="") Last Name
-                                    input.form-control(type="text")
-                            div.form-group
-                                label(for="") Email
-                                input.form-control(type="email")
-                                small.form-text.text-muted We'll never share your email with anyone else.
-                            .form-group
-                                label(for="").form-check.form-check-inline
-                                    input.form-check-input(type="radio", name="gender")
-                                    small.form-check-label Male
-                                label(for="").form-check.form-check-inline
-                                    input.form-check-input(type="radio", name="gender")
-                                    small.form-check-label Female
-                            .form-row
-                                .form-group.col-md-6
-                                    label(for="") City
-                                    input.form-control(type="text", name="city")
-                                form-group.col-md-6
-                                    label(for="") Country
-                                    select.form-control(name="country")
-                                        option(value="") Choose...
-                                        option(value="") Uzbekistan
-                                        option(value="") Russia
-                                        option(value="" selected="") United States
-                                        option(value="") India
-                                        option(value="") Afganistan
-                            .form-group
-                                label(for="") Create password
-                                input.form-control(type="password", name="password")
-                            .form-group
-                                button(type="submit").btn.btn-primary.btn-block Register
-                            div.text-muted
-                                small By clicking the 'Sign Up' button, you confirm that you accept our
-                            div.text-muted
-                                small Terms of use and Privacy Policy.
-                            .border-top.card-body.text-center  Have an account? 
-                                a(href="") Log In
+extends mainLayout.pug
+
+block style
+    
+block content
+    article.card-body
+        form(method="POST" action="/thanks")
+        div.form-row
+            div.col.form-group
+                label(for="") First Name
+                input.form-control(type="text" name="firstname")
+            div.col.form-group
+                label(for="") Last Name
+                input.form-control(type="text")
+        div.form-group
+            label(for="") Email
+            input.form-control(type="email")
+            small.form-text.text-muted We'll never share your email with anyone else.
+        .form-group
+            label(for="").form-check.form-check-inline
+                input.form-check-input(type="radio", name="gender")
+                small.form-check-label Male
+            label(for="").form-check.form-check-inline
+                input.form-check-input(type="radio", name="gender")
+                small.form-check-label Female
+        .form-row
+            .form-group.col-md-6
+                label(for="") City
+                input.form-control(type="text", name="city")
+            form-group.col-md-6
+                label(for="") Country
+                select.form-control(name="country")
+                    option(value="") Choose...
+                    option(value="") Uzbekistan
+                    option(value="") Russia
+                    option(value="" selected="") United States
+                    option(value="") India
+                    option(value="") Afganistan
+        .form-group
+            label(for="") Create password
+            input.form-control(type="password", name="password")
+        .form-group
+            button(type="submit").btn.btn-primary.btn-block Register
+        div.text-muted
+            small By clicking the 'Sign Up' button, you confirm that you accept our
+        div.text-muted
+            small Terms of use and Privacy Policy.
+        .border-top.card-body.text-center  Have an account? 
+            a(href="") Log In
