@@ -2,10 +2,17 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const port = 3000
+const pug = require('pug')
 
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'views'))
+
+// app.get('/', (req, res) => {
+//   res.send('Hello World')
+// })
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)
@@ -28,9 +35,6 @@ var User = mongoose.model('User', nameSchema)
 
 app.post('/addname', (req, res) => {
 })
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 app.post('/addname', (req, res) => {
   var myData = new User(req.body)
