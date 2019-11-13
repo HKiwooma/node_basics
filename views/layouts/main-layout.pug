@@ -8,7 +8,11 @@ html(lang="en")
         block style
         title first-templete
     body
-    
-        include header.pug
-        block content
-        include footer.pug
+        p
+        div.container
+            div.row.justify-content-center
+                div.col-md-6
+                    div.card
+                        include header.pug
+                        block content
+            include footer.pug
