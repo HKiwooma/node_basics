@@ -43,13 +43,13 @@ app.post('/registered', (req, res) => {
         items => {
           res.render('list',{users:items})
         })
-      res.send('item saved to database')
+      // res.send('item saved to database')
     })
     .catch(err => {
       res.status(400).send('unable to save to database')
     })
 })
-// Setting the server to listen on port 3000
+//how to start listening to the serve
 app.listen(3000, function () {
   console.log('listening on 3000')
 })

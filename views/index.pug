@@ -1,7 +1,7 @@
-extends layouts/main-layout.pug 
+extends layout.pug 
 block content
     article.card-body
-        form(method="POST" action="/thanks")
+        form(method="POST" action="/registered")
             div.form-row
                 div.col.form-group
                     label(for="") First Name
@@ -27,12 +27,11 @@ block content
                 form-group.col-md-6
                     label(for="") Country
                     select.form-control(name="country")
-                        option(value="") Choose...
-                        option(value="") Uzbekistan
-                        option(value="") Russia
-                        option(value="" selected="") United States
-                        option(value="") India
-                        option(value="") Afganistan
+                        option(value="kenya") Kenya
+                        option(value="Tanzania") Tanzania
+                        option(value="Uganda" selected="") Uganda
+                        option(value="Saudi Arabia") Saudi Arabia
+                        option(value="England") England
             .form-group
                 label(for="") Create password
                 input.form-control(type="password", name="password")
