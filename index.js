@@ -11,44 +11,11 @@ app.set('views', path.join(__dirname, 'views')) // Setting the folder path
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// database - make a connection
-mongoose.connect('mongodb://localhost:27017/database_name')
+// Importing Routes
+const registrationRoute = require('./routes/registrationRoutes')
 
-// Schema defintion
-const registrationSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: 'Please Enter first name'
-  },
-  lastName: String,
-  emailAddress: String,
-  gender: String,
-  country: String,
-  city: String
-})
-// creating model for the schema with collection name
-const Register = mongoose.model('Register', registrationSchema)
+app.use('/register', registrationRoute)
 
-// Routes
-app.get('/register', (req, res, next) => {
-  res.render('index')
-})
-// a document instance
-app.post('/registered', (req, res) => {
-  const myRegister = new Register(req.body)
-  // save data using scheme collection name 'Register' to database
-  myRegister.save()
-    .then(item => {
-      Register.find().then(
-        items => {
-          res.render('list',{users:items})
-        })
-      // res.send('item saved to database')
-    })
-    .catch(err => {
-      res.status(400).send('unable to save to database')
-    })
-})
 //how to start listening to the serve
 app.listen(3000, function () {
   console.log('listening on 3000')
