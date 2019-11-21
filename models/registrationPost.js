@@ -9,7 +9,7 @@ const registrationSchema = new mongoose.Schema({
   lastName: String,
   emailAddress: {
     type: String,
-    required: true
+    required: false
   },
   gender: String,
   country: String,

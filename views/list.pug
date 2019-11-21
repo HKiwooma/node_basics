@@ -1,4 +1,4 @@
-extends layouts/main-layout.pug 
+extends layout.pug 
 block content
     table.table
         thead.thead-dark
@@ -18,3 +18,7 @@ block content
                     td #{user.gender}
                     td #{user.country}
                     td #{user.city}
+                    td 
+                        form(name="deleteproject", method="post", action="/deleteproject")
+                        input#input_name(type="hidden", placeholder="", name="_id", value="#{project._id}")
+                        button.btn.btn-danger.btn-block(type="submit") delete

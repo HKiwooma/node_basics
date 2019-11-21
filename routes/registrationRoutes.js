@@ -10,11 +10,11 @@ router.get("/", (req, res, next) => {
 
 // a document instance
 router.post("/", async (req, res) => {
-  const myRegister = new Register(req.body);
+  const myRegister = new registrationPost(req.body);
   // save data using scheme collection name 'Register' to database
   try{
     await myRegister.save();
-    const items = await Register.find()
+    const items = await registrationPost.find()
     res.render("list", { users: items });
   }catch(error){
       res.status(400).send("unable to save to database");
