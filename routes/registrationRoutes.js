@@ -15,9 +15,29 @@ router.post("/", async (req, res) => {
   try{
     await myRegister.save();
     const items = await registrationPost.find()
-    res.render("list", { users: items });
+    res.render("login", { users: items });
   }catch(error){
       res.status(400).send("unable to save to database");
     };
 });
+
+//search route
+router.get('/search', async(req,res)=>{
+  if (req.session.user) {
+    console.log('req.session.user');
+    try {
+      //let allows for variable reassignments
+      const items = await registrationPost.find()
+      res.render("login", { users: items });
+      if (req.) {
+        
+      }
+    } catch (error) {
+      
+    }
+    
+  } else {
+    res.redirect(login)
+})
+
 module.exports = router;

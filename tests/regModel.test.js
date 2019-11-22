@@ -37,7 +37,7 @@ describe("registration model test", () => {
     } catch (err) {
       console.log("database error " + err);
       expect(err.toString()).toBe(
-        "ValidationError: firstname: Please Enter first name"
+        "ValidationError: firstName: Please Enter first name"
       );
     }
     const items = await Register.find({});

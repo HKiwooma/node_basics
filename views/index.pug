@@ -1,5 +1,7 @@
 extends layout.pug 
 block content
+    header.card-header.align-items-center
+        h2.card-tittle.mt-2 Register        
     article.card-body
         form(method="POST" action="/register")
             div.form-row
@@ -9,6 +11,9 @@ block content
                 div.col.form-group
                     label(for="") Last Name
                     input.form-control(type="text" name="lastName")
+                div.col.form-group
+                    label(for="") User Name
+                    input.form-control(type="text" name="userName")
             div.form-group
                 label(for="") Email
                 input.form-control(type="email" name="emailAddress")

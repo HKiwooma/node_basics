@@ -20,16 +20,19 @@ require("./models/Photo");
 const index = require("./routes/index");
 const users = require("./routes/users");
 
-app.use("/register", registrationRoute);
+const loginRoute = require("./routes/loginRoute");
+
+// app.use("/register", registrationRoute);
 app.use("/", index);
 app.use("/users", users);
+app.use("/login", loginRoute);
 
 //connecting to the DB
 // mongoose.Promise = global.Promise;
-mongoose.set("useUnifiedTopology", true);
+// mongoose.set("useUnifiedTopology", true);
 mongoose.connect(
   "mongodb://localhost:27017/node-demo",
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to DB");
   }
